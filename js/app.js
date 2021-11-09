@@ -13,7 +13,7 @@ document.querySelector("body > main > header > h1").append('Ahmed Azzam');
 // array sections 
 let Sections = ['Section','Section','Section','Section'];
 let number=0;
-document.getElementById('navbar__list').innerHTML +=`<li class=" "> <a onclick="addSection()" style="background: white;color: black;" href="#">add Section </a> </li>`
+document.getElementById('navbar__list').innerHTML +=`<li class=" "> <a onclick="addSection()" style="background: white;color: black;" href="#">add Section </a> </li><li class=" "> <a onclick="removeSection()" style="background: #f00;color: white;" href="#">remove Section </a> </li>`
 
 let addSection = () => {
     number=++document.getElementsByTagName('section').length;
@@ -32,6 +32,12 @@ let addSection = () => {
         document.getElementById('navbar__list').innerHTML +=`<li class="${ Sections[0] }${number}"> <a href="#${ Sections[0] }${number}">${ Sections[Section] } ${number}</a> </li>`;
         document.location=`#${ Sections[0] }${number}`;
     }
+
+let removeSection = () => {
+  number= document.getElementsByTagName('section').length;
+  document.querySelector(`#app > section:nth-child(${number})`).remove()
+  document.querySelector(`#navbar__list > li.Section${number}`).remove()
+  }
 
 for (Section in Sections) {
     number++;
