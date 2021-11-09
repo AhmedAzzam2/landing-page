@@ -15,6 +15,7 @@ let Sections = ['Section','Section','Section','Section'];
 let number=0;
 document.getElementById('navbar__list').innerHTML +=`<li class=" "> <a onclick="addSection()" style="background: white;color: black;" href="#">add Section </a> </li><li class=" "> <a onclick="removeSection()" style="background: #f00;color: white;" href="#">remove Section </a> </li>`
 
+// add to last Section with li 
 let addSection = () => {
     number=++document.getElementsByTagName('section').length;
         
@@ -32,7 +33,7 @@ let addSection = () => {
         document.getElementById('navbar__list').innerHTML +=`<li class="${ Sections[0] }${number}"> <a href="#${ Sections[0] }${number}">${ Sections[Section] } ${number}</a> </li>`;
         document.location=`#${ Sections[0] }${number}`;
     }
-
+// remove last Section with li 
 let removeSection = () => {
   number= document.getElementsByTagName('section').length;
   document.querySelector(`#app > section:nth-child(${number})`).remove()
@@ -55,19 +56,16 @@ for (Section in Sections) {
     document.getElementById('navbar__list').innerHTML +=`<li class="${ Sections[Section] }${number}"> <a href="#${ Sections[Section] }${number}">${ Sections[Section] } ${number}</a> </li>`
     
 }
- 
-// Scroll to section on link click
-
-// Set sections as active
 
 
-// Get all sections that have an ID defined
+
 let sections;
 
 // Add an event  scroll
 window.addEventListener("scroll", navHighlighter);
 
 function navHighlighter() {
+  // Get all sections that have an ID defined
     sections = document.querySelectorAll("section[id]");
   // Get id scroll position
   let scrollY = window.pageYOffset;
