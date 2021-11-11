@@ -15,16 +15,15 @@ let Sections = ['Section', 'Section', 'Section', 'Section'];
 let number = 0;
 //puted function addSection() and removeSection() to menu
 document.getElementById('navbar__list').innerHTML += `
-  <li class=" ">
-   <a onclick="addSection()" style="background: white;color: black;" href="#">add Section </a> 
+  <li class=" shadow-lg">
+   <a onclick="addSection()" style="background: #0dcaf0;color: black;" href="#">add Section </a> 
    </li>
-  <li class=" "> 
+  <li class=" shadow-lg"> 
     <a onclick="removeSection()" style="background: #f00;color: white;" href="#">remove Section </a>
   </li>`;
 
-// arrow function add to last Section with li 
-let addSection = () => {
-  number = ++document.getElementsByTagName('section').length; // count Sections
+// arrow function for add to last Section with li 
+let SectionWithLi = () => {
   // puted html to #app 
   document.getElementById('app').innerHTML += `
     <section id="${Sections[0]}${number}" data-nav="${Sections[0]}${number}" >
@@ -36,10 +35,16 @@ let addSection = () => {
     </section> `;
   // build the nav
   document.getElementById('navbar__list').innerHTML += `
-    <li class="${Sections[0]}${number}"> 
+    <li class="shadow-lg ${Sections[0]}${number}"> 
       <a href="#${Sections[0]}${number}">${Sections[Section]} ${number}</a>
     </li>`;
 }
+
+let addSection = () => {
+  number = ++document.getElementsByTagName('section').length; // count Sections
+  SectionWithLi()
+}
+
 // arrow function remove last Section with li 
 let removeSection = () => {
   number = document.getElementsByTagName('section').length; // count Sections
@@ -49,36 +54,23 @@ let removeSection = () => {
 
 for (Section in Sections) {
   number++;
-  document.getElementById('app').innerHTML += `
-    <section id="${Sections[Section]}${number}" data-nav="${Sections[Section]}${number}" >
-      <div class="landing__container">
-        <h2>${Sections[Section]} ${number}</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p> 
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
-      </div>
-    </section> `;
-  // When clicking an item from the navigation menu, the link scroll to the appropriate section 
-  document.getElementById('navbar__list').innerHTML += `
-    <li class="${Sections[Section]}${number}"> 
-      <a href="#${Sections[Section]}${number}">${Sections[Section]} ${number}</a> 
-    </li>`
-
+  SectionWithLi();
 }
 
 
 
-let sections;
+let section;
 
 // Add an event  scroll
 window.addEventListener("scroll", navHighlighter);
 // function navHighlighter
 function navHighlighter() {
   // Get all sections that have an ID defined
-  sections = document.querySelectorAll("section[id]");
+  section = document.querySelectorAll("section[id]");
   // Get id scroll position
   let scrollY = window.pageYOffset;
   //   loop  get height 
-  sections.forEach(id => {
+  section.forEach(id => {
     const sectH = id.offsetHeight;
 
     const sectTop = (id.getBoundingClientRect().top + window.pageYOffset) - 51;

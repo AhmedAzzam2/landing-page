@@ -5,7 +5,7 @@ Project has the structure.
 
 Styling has been added for active states.
 
-more 4 sections that have been added to the page.
+There 4 sections that have been added to the page.
 Navigation is built dynamically as an unordered list.
 
 When clicking an item from the navigation menu, the link scroll to the appropriate section.
