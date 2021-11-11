@@ -1,15 +1,66 @@
 # Landing Page Project
 
-## Table of Contents
+DONE
+Project has the structure.
 
-* [Instructions](#instructions)
+Styling has been added for active states.
 
-## Instructions
+There 4 sections that have been added to the page.
+Navigation is built dynamically as an unordered list.
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+When clicking an item from the navigation menu, the link scroll to the appropriate section.
 
-To get started, open `js/app.js` and start building out the app's functionality
+Comments are present and effectively explain longer code procedure when necessary.
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+All features are usable across modern desktop, tablet, and phone browsers.
+which section is being viewed while scrolling through the page.
+
+Code is formatted with consistent, logical, and easy-to-read formatting.
+
+
+// build page by DOM 
+// create nav with dom
+
+// added class to nav and next put html
+
+// get h1 and puted my name Ahmed Azzam by append
+
+// array sections 
+
+//puted function addSection() and removeSection() to menu
+
+
+// arrow function add to last Section with li 
+
+// count Sections
+ // puted html to #app 
+
+ 
+ // build the nav
+ 
+ 
+// arrow function remove last Section with li 
+
+// count Sections
+
+
+ // When clicking an item from the navigation menu, the link scroll to the appropriate section 
+
+ 
+ // Add an event scroll
+ 
+// function navHighlighter
+ // Get all sections that have an ID defined
+ // Get id scroll position
+ // loop get height 
+ // Add class 'active' to section when near top of viewport
+ 
+ 
+ // remove class 'active' to section when near top of viewport
+ 
  
 
+// puted button Top html 
+
+
+// arrow function for scrollTop
