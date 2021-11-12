@@ -15,6 +15,7 @@ All features are usable across modern desktop, tablet, and phone browsers. which
 Code is formatted with consistent, logical, and easy-to-read formatting.
 
 build page by DOM 
+
 create nav with dom
 
 added class to nav and next put html
@@ -40,9 +41,13 @@ When clicking an item from the navigation menu, the link scroll to the appropria
 Add an event scroll
 
 function navHighlighter 
+
 Get all sections that have an ID defined 
+
 Get id scroll position 
+
 loop get height 
+
 Add class 'active' to section when near top of viewport
 
 remove class 'active' to section when near top of viewport
@@ -50,3 +55,4 @@ remove class 'active' to section when near top of viewport
 puted button Top html
 
 arrow function for scrollTop
+ 
