@@ -1,11 +1,17 @@
 # Landing Page Project
 DONE
 Project has the structure.
+
 Styling has been added for active states.
+
 more 4 sections that have been added to the page. Navigation is built dynamically as an unordered list.
+
 When clicking an item from the navigation menu, the link scroll to the appropriate section.
+
 Comments are present and effectively explain longer code procedure when necessary.
+
 All features are usable across modern desktop, tablet, and phone browsers. which section is being viewed while scrolling through the page.
+
 Code is formatted with consistent, logical, and easy-to-read formatting.
 
 build page by DOM 
