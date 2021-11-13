@@ -22,37 +22,30 @@ added class to nav and next put html
 
 get h1 and puted my name Ahmed Azzam by append
 
-array sections
-puted function addSection() and removeSection() to menu
-
-arrow function add to last Section with li
-
 count Sections 
+
 puted html to #app
 
 build the nav
 
-arrow function remove last Section with li
+used SectionWithLi() for loop
 
-count Sections
+get ID from menu and go section by scrollIntoView() smooth
 
-When clicking an item from the navigation menu, the link scroll to the appropriate section
+Add an event  scroll
 
-Add an event scroll
+function add or remove class 'active' to section when near top of viewport
 
-function navHighlighter 
+Get all sections that have an ID defined
 
-Get all sections that have an ID defined 
+Get id scroll position
 
-Get id scroll position 
-
-loop get height 
+loop  get height 
 
 Add class 'active' to section when near top of viewport
 
 remove class 'active' to section when near top of viewport
 
-puted button Top html
+puted button Top html 
 
-arrow function for scrollTop
- 
+event for scroll to Top

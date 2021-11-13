@@ -13,14 +13,7 @@ document.querySelector("body > main > header > h1").append('Ahmed Azzam');
 // array sections 
 let Sections = ['Section', 'Section', 'Section', 'Section'];
 let number = 0;
-//puted function addSection() and removeSection() to menu
-document.getElementById('navbar__list').innerHTML += `
-  <li class=" shadow-lg">
-   <a onclick="addSection()" style="background: #0dcaf0;color: black;" href="#">add Section </a> 
-   </li>
-  <li class=" shadow-lg"> 
-    <a onclick="removeSection()" style="background: #f00;color: white;" href="#">remove Section </a>
-  </li>`;
+
 
 // arrow function for add to last Section with li 
 let SectionWithLi = () => {
@@ -36,41 +29,32 @@ let SectionWithLi = () => {
   // build the nav
   document.getElementById('navbar__list').innerHTML += `
     <li class="shadow-lg ${Sections[0]}${number}"> 
-      <a href="#${Sections[0]}${number}">${Sections[Section]} ${number}</a>
+      <a  href="javascript:getID('${Sections[0]}${number}')">${Sections[Section]} ${number}</a>
     </li>`;
-}
+};
 
-let addSection = () => {
-  number = ++document.getElementsByTagName('section').length; // count Sections
-  SectionWithLi()
-}
 
-// arrow function remove last Section with li 
-let removeSection = () => {
-  number = document.getElementsByTagName('section').length; // count Sections
-  document.querySelector(`#app > section:nth-child(${number})`).remove()
-  document.querySelector(`#navbar__list > li.Section${number}`).remove()
-}
-
-for (Section in Sections) {
+for (Section in Sections) { // used SectionWithLi() for loop 
   number++;
   SectionWithLi();
-}
+};
+
+function getID(params) {// get ID from menu and go section by scrollIntoView() smooth
+  document.getElementById(params).scrollIntoView({
+    behavior: 'smooth'
+  });
+};
 
 
+window.addEventListener("scroll", navHighlighter); // Add an event  scroll
 
-let section;
+function navHighlighter() { // function add or remove class 'active' to section when near top of viewport
+  
+  let section = document.querySelectorAll("section[id]"); // Get all sections that have an ID defined
 
-// Add an event  scroll
-window.addEventListener("scroll", navHighlighter);
-// function navHighlighter
-function navHighlighter() {
-  // Get all sections that have an ID defined
-  section = document.querySelectorAll("section[id]");
-  // Get id scroll position
-  let scrollY = window.pageYOffset;
-  //   loop  get height 
-  section.forEach(id => {
+  let scrollY = window.pageYOffset; // Get id scroll position
+
+  section.forEach(id => { // loop  get height 
     const sectH = id.offsetHeight;
 
     const sectTop = (id.getBoundingClientRect().top + window.pageYOffset) - 51;
@@ -80,30 +64,33 @@ function navHighlighter() {
       // Add class 'active' to section when near top of viewport
       document.querySelector("#navbar__list > li." + sectID).classList.add("active");
       document.querySelector("#" + sectID).classList.add("active");
-      document.getElementById("namesection").innerText = sectID;
     } else {
       // remove class 'active' to section when near top of viewport
       document.querySelector("#navbar__list > li." + sectID).classList.remove("active");
       document.querySelector("#" + sectID).classList.remove("active");
     }
   });
-}
+
+};
 
 
-// puted button Top html 
-document.querySelector("body").innerHTML += ('<button id="myBtn" >Top</button>');
+//
+document.querySelector("body").innerHTML += ('<button id="myBtn" >Top</button>'); // puted button Top html 
 
-var mybutton = document.getElementById("myBtn");
-
-window.onscroll = scrollFunction = () => {
+addEventListener('scroll', () => { // add block or none for style button event scroll 
+  
   if (document.body.scrollTop > 22 || document.documentElement.scrollTop > 22) {
-    mybutton.style.display = "block";
+    document.getElementById("myBtn").style.display = "block";
   } else {
-    mybutton.style.display = "none";
+    document.getElementById("myBtn").style.display = "none";
   }
-}
-// arrow function for scrollTop
-mybutton.onclick = () => {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
+})
+
+
+document.getElementById("myBtn").addEventListener('click', (event) => { //event for scroll to Top
+  
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+});
+
+
